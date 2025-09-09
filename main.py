@@ -27,8 +27,9 @@ while len(guss) < 50:
         for st in file.state:
             if st not in guss:
                 missing.append(st)
-
-        print(missing)
+        n = pd.DataFrame(missing)
+        n.to_csv("missing.csv")
+        print(n)
         break
 
 

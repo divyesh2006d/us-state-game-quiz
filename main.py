@@ -9,7 +9,7 @@ s.bgpic("blank_states_img.gif")
 
 # Load CSV into DataFrame
 file = pd.read_csv("50_states.csv")
-print(file)
+# print(file)
 # Get user input
 
 guss = []
@@ -34,6 +34,6 @@ while len(guss) < 50:
         t.hideturtle()
         t.penup()
         t.goto(int(state_data.x), int(state_data.y))   # move to state coords
-        t.write(answer_state, align="center", font=("Arial", 10, "normal"))
+        t.write(answer_state, align="center", font=("Arial", 8, "normal"))
 
 s.exitonclick()

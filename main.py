@@ -9,10 +9,12 @@ s.bgpic("blank_states_img.gif")
 
 # Load CSV into DataFrame
 file = pd.read_csv("50_states.csv")
+
 # print(file)
 # Get user input
 
 guss = []
+
 while len(guss) < 50:
 
     answer_state = s.textinput(title="US State Game", prompt="Enter a state:").title()
@@ -21,7 +23,14 @@ while len(guss) < 50:
         break
 
     if answer_state == "Exit":
+        missing = []
+        for st in file.state:
+            if st not in guss:
+                missing.append(st)
+
+        print(missing)
         break
+
 
     # If the state exists in CSV
     if answer_state in file.state.values and answer_state not in guss:
@@ -33,7 +42,7 @@ while len(guss) < 50:
         t = Turtle()
         t.hideturtle()
         t.penup()
-        t.goto(int(state_data.x), int(state_data.y))   # move to state coords
+        t.goto(int(state_data.x), int(state_data.y))   # move to state coordinates
         t.write(answer_state, align="center", font=("Arial", 8, "normal"))
 
-s.exitonclick()
+# s.exitonclick()

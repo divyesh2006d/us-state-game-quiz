@@ -23,10 +23,7 @@ while len(guss) < 50:
         break
 
     if answer_state == "Exit":
-        missing = []
-        for st in file.state:
-            if st not in guss:
-                missing.append(st)
+        missing = [st for st in file.state  if st not in guss]
         n = pd.DataFrame(missing)
         n.to_csv("missing.csv")
         print(n)
